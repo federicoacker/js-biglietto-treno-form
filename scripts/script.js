@@ -8,6 +8,32 @@ const ageElem = document.querySelector("#user-form-age-category");
 //Adesso, andiamo a creare la funzione che si occuperà di recuperare i dati quando viene fatto il submit
 function formSubmitHandler(event){
     event.preventDefault();
+
+    // LOAD DELLE VARIABILI //
+
+    const name = nameElem.value;
+    const surname = surnameElem.value; 
+    const kilometers = kilomElem.value;
+    const ageCategory = ageElem.value; // Per questi, non ho bisogno di fare validazione, visto che è un select e quindi i value glieli ho dati io
+
+    // VALIDAZIONE //
+    const stringValidator = validatorGenerator("string"); // Creo la funzione di validazione delle stringhe
+    const numberValidator = validatorGenerator("1"); // Creo la funzione di validazione dei numeri
+
+    if(stringValidator(name) === -1){
+        alert("Hai inserito un valore non valido nel Nome");
+        return;
+    }
+    if(stringValidator(surname) === -1){
+        alert("Hai inserito un valore non valido nel Cognome");
+        return;
+    }
+    if(numberValidator(kilometers) === -1){
+        alert("Hai inserito un valore non valido per i Chilometri");
+        return;
+    }
+
+    // POST VALIDAZIONE //
 }
 
 formElem.addEventListener("submit", formSubmitHandler);
