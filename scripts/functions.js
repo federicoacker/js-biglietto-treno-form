@@ -50,10 +50,10 @@ function calculatePrice(kilometers, ageCategory) {
     let finalPrice = basePriceKm * kilometers;
 
     //Ricordiamoci che noi dal select otterremo come value, 0 per i minori, 1 per gli adulti e 2 per i senior
-    if (ageCategory == 0) {
+    if (Number(ageCategory) === 0) {
         finalPrice -= finalPrice * minorSale;
     }
-    else if (ageCategory == 2) {
+    else if (Number(ageCategory) === 2) {
         finalPrice -= finalPrice * seniorSale;
     }
 
