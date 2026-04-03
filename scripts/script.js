@@ -34,6 +34,7 @@ function formSubmitHandler(event){
     }
 
     // POST VALIDAZIONE //
+    // Per questo, devo prima andare a creare l'html del biglietto completato
 }
 
 formElem.addEventListener("submit", formSubmitHandler);
