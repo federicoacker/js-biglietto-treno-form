@@ -52,8 +52,8 @@ function formSubmitHandler(event){
     ageElem.value = "0";
 
     ticketWrapper.classList.remove("d-none");
-    formWrapper.classList.add("d-none");
     newTicketBtn.classList.remove("d-none");
+    formWrapper.classList.add("d-none");
 }
 
 function newTicketBtnClickHandler(){
