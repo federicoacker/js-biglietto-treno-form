@@ -43,6 +43,10 @@ function formSubmitHandler(event){
     const price = calculatePrice(kilometers, ageCategory);
 
     createTicket(name, surname, ageCategory, price);
+    nameElem.value = "";
+    surnameElem.value = "";
+    kilomElem.value = "";
+    ageElem.value = 0;
 }
 
 formElem.addEventListener("submit", formSubmitHandler);
