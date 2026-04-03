@@ -10,4 +10,6 @@ main{
 .outer-wrapper{
     height:100%;
 }
-
+.logo{
+    max-height:200px;
+}
