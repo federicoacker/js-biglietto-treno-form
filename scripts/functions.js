@@ -25,3 +25,37 @@ function validatorGenerator(stringToValidate){ // Funzione che si occuperà dell
         return stringToValidate;
     }
 }
+
+
+// FUNZIONE CHE CALCOLA IL PREZZO
+function calculatePrice() {
+    // Seleziono tutti i field input nella mia form, questi vengono salvati in una nodelist,
+    // so che indice 0 ho i chilometri e indice 1 ho l'età per come ho fatto la form
+    const trainFormInputs = document.querySelectorAll('#formTreno input');
+    // Associo alle mie variabili, kilometers e age, il value che recupero dalla form, inserito dall'utente (di default value 0)
+    // che mi viene restituito come stringa
+    kilometers = Number(trainFormInputs[0].value);
+    age = Number(trainFormInputs[1].value);
+    // Validazione di età e chilometraggio
+    isKilometersValid = !(isNaN(kilometers) || kilometers <= 0)
+    isAgeValid = !(isNaN(age) || age <= 0);
+
+    if(!isKilometersValid){ alert("Il valore inserito per i chilometri non è valido");}
+    if(!isAgeValid){ alert("Il valore inserito per l'età non è valido");}
+
+    if (isAgeValid && isKilometersValid) {
+        //Calcolo del prezzo
+        finalPrice = basePriceKm * kilometers
+        if (age < minorAge) {
+            finalPrice -= finalPrice * minorSale;
+        }
+        else if (age >= seniorAge) {
+            finalPrice -= finalPrice * seniorSale;
+        }
+        prezzoTotaleHTML.innerHTML = `Prezzo Totale: ${finalPrice.toFixed(2)} \u20AC`;
+    }
+    else {
+        prezzoTotaleHTML.innerHTML = `Prezzo Totale:`; // Reset della sezione del prezzo in caso di utilizzi sequenziali con errori
+        alert("Esecuzione interrotta perché uno o più valori non erano validi");
+    }
+}
