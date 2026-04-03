@@ -1,3 +1,4 @@
+// FUNZIONE CHE GENERA VALIDATORI DI DATI
 function validatorGenerator(typeString) { // Funzione che si occuperà di generare validatori per i miei dati
     if (typeString === "number") { //Se la typestring inserita è number, allora voglio un validatore di nummeri
         return function validateNumber(numberToValidate) {
@@ -58,10 +59,9 @@ function calculatePrice(kilometers, ageCategory) {
     return finalPrice;
 }
 
-// La funzione che crea il biglietto, semplicemente, si prende tutte le field da modificare, le modifica con i valori giusti che le sono passati
+//FUNZIONE CHE CREA IL BIGLIETTO
+function createTicket(name, surname, ageCategory, price) {// La funzione che crea il biglietto, semplicemente, si prende tutte le field da modificare, le modifica con i valori giusti che le sono passati
 // o per valori come carrozza e codice, genera dei valori
-
-function createTicket(name, surname, ageCategory, price) {
     const ticketName = document.querySelector("#nome-p");
     const ticketOfferta = document.querySelector("#offerta-p");
     const ticketCarrozza = document.querySelector("#carrozza-p");
