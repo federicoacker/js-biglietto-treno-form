@@ -13,24 +13,27 @@ function formSubmitHandler(event){
 
     // LOAD DELLE VARIABILI //
 
-    const name = nameElem.value;
-    const surname = surnameElem.value; 
-    const kilometers = kilomElem.value;
+    let name = nameElem.value;
+    let surname = surnameElem.value; 
+    let kilometers = kilomElem.value;
     const ageCategory = ageElem.value; // Per questi, non ho bisogno di fare validazione, visto che è un select e quindi i value glieli ho dati io
 
     // VALIDAZIONE //
     const stringValidator = validatorGenerator("string"); // Creo la funzione di validazione delle stringhe
     const numberValidator = validatorGenerator("1"); // Creo la funzione di validazione dei numeri
 
-    if(stringValidator(name) === -1){
+    name = stringValidator(name);
+    if(name === -1){
         alert("Hai inserito un valore non valido nel Nome");
         return;
     }
-    if(stringValidator(surname) === -1){
+    surname = stringValidator(surname);
+    if(surname === -1){
         alert("Hai inserito un valore non valido nel Cognome");
         return;
     }
-    if(numberValidator(kilometers) === -1){
+    kilometers = numberValidator(kilometers);
+    if(kilometers === -1){
         alert("Hai inserito un valore non valido per i Chilometri");
         return;
     }

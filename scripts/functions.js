@@ -1,12 +1,27 @@
 function validatorGenerator(stringToValidate) { // Funzione che si occuperà della validazione dei miei dati.
-    const numberValidation = parseInt(stringToValidate, 10); // Faccio il parseInt, il Number() ha il problema che mi restituisce 0 se gli passo una stringa vuota
+    const numberValidation = Number(stringToValidate); // Trasformo in number, in pratica se a questa funzione do una stringa che contiene un numero o un numero, 
+    // lei mi restituisce la funzione per i numeri
     if (!isNaN(numberValidation)) { // In questo caso deve validarmi i numeri, quindi restituisco una funzione che valida quello
         return function validateNumber(numberToValidate) {
-            if (numberToValidate <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
-                return -1; // Se lo è, restituiamo codice d'errore;
+            if(typeof(numberToValidate) === "string" && numberToValidate.length !== 0){ // Se ti arriva una stringa nel numberValidator ( cosa che succede di prassi per il nostro utilizzo, controlla che non sia vuota)
+                const number = Number(numberToValidate); // Convertila in numero
+                if(isNaN(number)){ // Se è NaN allora restituisci codice d'errore
+                    return -1;
+                }
+                if (number <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
+                    return -1; // Se lo è, restituiamo codice d'errore;
+                }
+                // Altrimenti restituiamo il numero
+                return number;
             }
-            // Altrimenti restituiamo il numero
-            return numberToValidate;
+            else if(typeof(numberToValidate) === number && !isNaN(numberToValidate)){ // Altrimenti se ti arriva un numero
+                if (number <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
+                    return -1; // Se lo è, restituiamo codice d'errore;
+                }
+                // Altrimenti restituiamo il numero
+                return number;
+            }
+            return -1; // Altrimenti caso estremo, ti è stato dato tipo un array, allora restituisci errore
         }
     }
     // Nel caso in cui la stringa che riceviamo (Che so sicuramente essere una stringa visto che viene da un input) 
@@ -47,6 +62,8 @@ function calculatePrice(kilometers, ageCategory) {
     return finalPrice;
 }
 
+// La funzione che crea il biglietto, semplicemente, si prende tutte le field da modificare, le modifica con i valori giusti che le sono passati
+// o per valori come carrozza e codice, genera dei valori
 
 function createTicket(name, surname, ageCategory, price) {
     const ticketName = document.querySelector("#nome-p");
