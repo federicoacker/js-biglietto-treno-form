@@ -33,13 +33,13 @@ function calculatePrice(kilometers, ageCategory) {
     const basePriceKm = 0.21;
     const minorSale = 0.2;
     const seniorSale = 0.4;
-    const finalPrice = basePriceKm * kilometers;
+    let finalPrice = basePriceKm * kilometers;
 
     //Ricordiamoci che noi dal select otterremo come value, 0 per i minori, 1 per gli adulti e 2 per i senior
-    if (age == 0) {
+    if (ageCategory == 0) {
         finalPrice -= finalPrice * minorSale;
     }
-    else if (age == 2) {
+    else if (ageCategory == 2) {
         finalPrice -= finalPrice * seniorSale;
     }
 
@@ -48,11 +48,20 @@ function calculatePrice(kilometers, ageCategory) {
 }
 
 
-function createTicket(name, surname, kilometers, price) {
+function createTicket(name, surname, ageCategory, price) {
     const ticketName = document.querySelector("#nome-p");
     const ticketOfferta = document.querySelector("#offerta-p");
     const ticketCarrozza = document.querySelector("#carrozza-p");
     const ticketCodice = document.querySelector("#codice-p");
     const ticketCosto = document.querySelector("#costo-p");
+
+    const carrozza = Math.floor(Math.random() * 10) + 1;
+    const codice = `TI-${Math.floor(Math.random() * 99999)}`;
+
+    ticketName.innerText =  `${name} ${surname}`;
+    ticketOfferta.innerText = (ageCategory == 0) ? "Offerta Minorenni" : (ageCategory == 1) ? "Offerta Standard" : "Offerta per Senior";
+    ticketCarrozza.innerText = `Carrozza n.${carrozza}`;
+    ticketCodice.innerText = codice;
+    ticketCosto.innerText = `${price.toFixed(2)} ${'\u20AC'} `;
 
 }
