@@ -1,0 +1,12 @@
+body{
+    height:100vh;
+}
+header{
+    height:5vh;
+}
+main{
+    height:calc(100vh - 5vh);
+}
+.outer-wrapper{
+    height:100%;
+}
