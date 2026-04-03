@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-Biglietto-Treno-Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="style/index.css" rel="stylesheet">
 </head>
+
 <body>
     <main>
         <div class="outer-wrapper container-lg d-flex flex-column justify-content-center">
@@ -16,15 +19,18 @@
                     <form action="" id="ticket-form" class="form-control">
                         <div class="my-1">
                             <label for="user-form-name" class="form-label">Nome</label>
-                            <input required class="form-control" type="text" id="user-form-name" placeholder="Inserisci il tuo Nome">
+                            <input required class="form-control" type="text" id="user-form-name"
+                                placeholder="Inserisci il tuo Nome">
                         </div>
                         <div class="my-1">
                             <label for="user-form-surname" class="form-label">Cognome</label>
-                            <input required class="form-control" type="text" id="user-form-surname" placeholder="Inserisci il tuo Cognome">
+                            <input required class="form-control" type="text" id="user-form-surname"
+                                placeholder="Inserisci il tuo Cognome">
                         </div>
                         <div class="my-1">
                             <label for="user-form-kilometers" class="form-label">Chilometri</label>
-                            <input required class="form-control" type="text" id="user-form-kilometers" placeholder="Inserisci quanti chilometri vuoi viaggiare">
+                            <input required class="form-control" type="text" id="user-form-kilometers"
+                                placeholder="Inserisci quanti chilometri vuoi viaggiare">
                         </div>
                         <div class="my-1">
                             <label for="user-form-age-category" class="form-label">Seleziona la tua fascia d'età</label>
@@ -35,15 +41,51 @@
                             </select>
                         </div>
                         <div class="my-3">
-                            <button type="submit" class="btn btn-danger d-block mx-auto w-50">Genera il tuo biglietto</button>
+                            <button type="submit" class="btn btn-danger d-block mx-auto w-50">Genera il tuo
+                                biglietto</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <div class="container-lg border border-danger-subtle g-0">
+                <div class="row g-0">
+                    <div class="col-4">
+                        <figure class="">
+                            <img src="./img/logo.png" alt="Logo di trenitalia" class="img-fluid">
+                        </figure>
+                    </div>
+                    <div class="col-8">
+                        <div class="container-fluid h-100 ">
+                            <div class="row py-5 h-100 align-items-center">
+                                <div class="col-3">
+                                    <h5>Offerta </h5>
+                                    <p id="offerta-p"></p>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Carrozza </h5>
+                                    <p id="carrozza-p"></p>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Codice CP </h5>
+                                    <p id="codice-p"></p>
+                                </div>
+                                <div class="col-3">
+                                    <h5>Costo Biglietto </h5>
+                                    <p id="costo-p"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <script src="./scripts/functions.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
+
 </html>
