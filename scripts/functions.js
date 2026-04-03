@@ -3,11 +3,8 @@ function validatorGenerator(typeString) { // Funzione che si occuperà di genera
         return function validateNumber(numberToValidate) {
             if(typeof(numberToValidate) === "string" && numberToValidate.length !== 0){ // Se ti arriva una stringa nel numberValidator ( cosa che succede di prassi per il nostro utilizzo, controlla che non sia vuota)
                 const number = Number(numberToValidate); // Convertila in numero
-                if(isNaN(number)){ // Se è NaN allora restituisci codice d'errore
+                if(isNaN(number) || number <= 0){ // Se è NaN o è <=0 allora restituisci codice d'errore
                     return -1;
-                }
-                if (number <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
-                    return -1; // Se lo è, restituiamo codice d'errore;
                 }
                 // Altrimenti restituiamo il numero
                 return number;
