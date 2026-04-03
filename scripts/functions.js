@@ -1,7 +1,5 @@
-function validatorGenerator(stringToValidate) { // Funzione che si occuperà della validazione dei miei dati.
-    const numberValidation = Number(stringToValidate); // Trasformo in number, in pratica se a questa funzione do una stringa che contiene un numero o un numero, 
-    // lei mi restituisce la funzione per i numeri
-    if (!isNaN(numberValidation)) { // In questo caso deve validarmi i numeri, quindi restituisco una funzione che valida quello
+function validatorGenerator(typeString) { // Funzione che si occuperà di generare validatori per i miei dati
+    if (typeString === "number") { //Se la typestring inserita è number, allora voglio un validatore di nummeri
         return function validateNumber(numberToValidate) {
             if(typeof(numberToValidate) === "string" && numberToValidate.length !== 0){ // Se ti arriva una stringa nel numberValidator ( cosa che succede di prassi per il nostro utilizzo, controlla che non sia vuota)
                 const number = Number(numberToValidate); // Convertila in numero
@@ -14,30 +12,31 @@ function validatorGenerator(stringToValidate) { // Funzione che si occuperà del
                 // Altrimenti restituiamo il numero
                 return number;
             }
-            else if(typeof(numberToValidate) === number && !isNaN(numberToValidate)){ // Altrimenti se ti arriva un numero
-                if (number <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
+            else if(typeof(numberToValidate) === "number" && !isNaN(numberToValidate)){ // Altrimenti se ti arriva un numero
+                if (numberToValidate <= 0) { // A noi per ora basta controllare che il numero non sia inferiore o uguale a 0
                     return -1; // Se lo è, restituiamo codice d'errore;
                 }
                 // Altrimenti restituiamo il numero
-                return number;
+                return numberToValidate;
             }
             return -1; // Altrimenti caso estremo, ti è stato dato tipo un array, allora restituisci errore
         }
     }
-    // Nel caso in cui la stringa che riceviamo (Che so sicuramente essere una stringa visto che viene da un input) 
-    // non è un number allora restituiamo una funzione che valida la stringa
-    return function validateString(stringToValidate) {
-        if (stringToValidate.length === 0) { //Se la stringa che mi hai dato è vuota, ritorna codice d'errore
-            return -1;
-        }
-        for (let i = 0; i < stringToValidate.length; i++) {
-            const currentChar = stringToValidate[i];
-            if (!isNaN(Number(currentChar))) { // Se uno dei caratteri della stringa è un numero
-                return -1; // Restituisco codice d'errore
+    // Se la typestring è "string" allora voglio il validatore per le stringhe
+    if (typeString === "string"){
+        return function validateString(stringToValidate) {
+            if (stringToValidate.length === 0) { //Se la stringa che mi hai dato è vuota, ritorna codice d'errore
+                return -1;
             }
+            for (let i = 0; i < stringToValidate.length; i++) {
+                const currentChar = stringToValidate[i];
+                if (!isNaN(Number(currentChar))) { // Se uno dei caratteri della stringa è un numero
+                    return -1; // Restituisco codice d'errore
+                }
+            }
+            // A questo punto dovrebbe essere tutto okay con la mia stringa
+            return stringToValidate;
         }
-        // A questo punto dovrebbe essere tutto okay con la mia stringa
-        return stringToValidate;
     }
 }
 

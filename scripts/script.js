@@ -18,12 +18,12 @@ function formSubmitHandler(event){
 
     let name = nameElem.value;
     let surname = surnameElem.value; 
-    let kilometers = kilomElem.value;
+    let kilometers = Number(kilomElem.value);
     const ageCategory = ageElem.value; // Per questi, non ho bisogno di fare validazione, visto che è un select e quindi i value glieli ho dati io
 
     // VALIDAZIONE //
     const stringValidator = validatorGenerator("string"); // Creo la funzione di validazione delle stringhe
-    const numberValidator = validatorGenerator("1"); // Creo la funzione di validazione dei numeri
+    const numberValidator = validatorGenerator("number"); // Creo la funzione di validazione dei numeri
 
     name = stringValidator(name);
     if(name === -1){
@@ -49,7 +49,7 @@ function formSubmitHandler(event){
     nameElem.value = "";
     surnameElem.value = "";
     kilomElem.value = "";
-    ageElem.value = 0;
+    ageElem.value = "0";
 
     ticketWrapper.classList.remove("d-none");
     formWrapper.classList.add("d-none");
