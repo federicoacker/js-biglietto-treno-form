@@ -28,7 +28,7 @@ function validatorGenerator(stringToValidate) { // Funzione che si occuperà del
 
 
 // FUNZIONE CHE CALCOLA IL PREZZO
-function calculatePrice(kilometers, age) {
+function calculatePrice(kilometers, ageCategory) {
     //Andiamo a definire le costanti per il calcolo del prezzo
     const basePriceKm = 0.21;
     const minorSale = 0.2;

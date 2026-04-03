@@ -41,6 +41,9 @@ function formSubmitHandler(event){
 
     // POST VALIDAZIONE //
     // Per questo, devo prima andare a creare l'html del biglietto completato
+    const price = calculatePrice(kilometers, ageCategory);
+
+    createTicket(name, surname, kilometers, price);
 }
 
 formElem.addEventListener("submit", formSubmitHandler);
