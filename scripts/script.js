@@ -1,9 +1,12 @@
 //Prima cosa, mi serve recuperare i vari field da cui vorrò leggere i dati
+const formWrapper = document.querySelector("#form-wrapper");
+const ticketWrapper = document.querySelector("#ticket-wrapper");
 const formElem = document.querySelector("#ticket-form")
 const nameElem = document.querySelector("#user-form-name");
 const surnameElem = document.querySelector("#user-form-surname");
 const kilomElem = document.querySelector("#user-form-kilometers");
 const ageElem = document.querySelector("#user-form-age-category");
+const newTicketBtn = document.querySelector("#new-ticket-btn");
 
 
 
@@ -47,6 +50,18 @@ function formSubmitHandler(event){
     surnameElem.value = "";
     kilomElem.value = "";
     ageElem.value = 0;
+
+    ticketWrapper.classList.remove("d-none");
+    formWrapper.classList.add("d-none");
+    newTicketBtn.classList.remove("d-none");
+}
+
+function newTicketBtnClickHandler(){
+    ticketWrapper.classList.add("d-none");
+    newTicketBtn.classList.add("d-none");
+    formWrapper.classList.remove("d-none");
 }
 
 formElem.addEventListener("submit", formSubmitHandler);
+
+newTicketBtn.addEventListener("click", newTicketBtnClickHandler);
