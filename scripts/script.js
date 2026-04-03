@@ -5,6 +5,12 @@ const surnameElem = document.querySelector("#user-form-surname");
 const kilomElem = document.querySelector("#user-form-kilometers");
 const ageElem = document.querySelector("#user-form-age-category");
 
+const ticketName = document.querySelector("#nome-p");
+const ticketOfferta = document.querySelector("#offerta-p");
+const ticketCarrozza = document.querySelector("#carrozza-p");
+const ticketCodice = document.querySelector("#codice-p");
+const ticketCosto = document.querySelector("#costo-p");
+
 //Adesso, andiamo a creare la funzione che si occuperà di recuperare i dati quando viene fatto il submit
 function formSubmitHandler(event){
     event.preventDefault();
